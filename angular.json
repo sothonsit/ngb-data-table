@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ngb-data-table": {
+      "root": "projects/ngb-data-table",
+      "sourceRoot": "projects/ngb-data-table/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngb-data-table/tsconfig.lib.json",
+            "project": "projects/ngb-data-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngb-data-table/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngb-data-table/src/test.ts",
+            "tsConfig": "projects/ngb-data-table/tsconfig.spec.json",
+            "karmaConfig": "projects/ngb-data-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngb-data-table/tsconfig.lib.json",
+              "projects/ngb-data-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngb-data-table-app"
